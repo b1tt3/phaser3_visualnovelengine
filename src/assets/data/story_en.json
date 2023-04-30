@@ -1,8 +1,7 @@
 {
     "storyName":{"name":"Demo Test","aka":"demoTest"},
     "locations": [
-        {"name":"Supermarket","cfName":"supermarket","aka":"sm","image":"src/assets/images/supermarket_bg.jpg"},
-        {"name":"Lucy's Apartment","cfName":"lucyapartment","aka":"la","image":"src/assets/images/lucy_apartment_bg.jpg"}
+        {"name":"School","cfName":"school","aka":"sc","image":"src/assets/images/school_bg.jpg"}
     ],
     "characters":[
         {"name":"Lucy Martel","cfName":"Lucy","aka":"l","height":1800,"texture":"src/assets/Anims/Lucy_tex.png","textureData":"src/assets/Anims/Lucy_tex.json","skeletonData":"src/assets/Anims/Lucy_ske.json"},
@@ -36,71 +35,22 @@
     "inventoryTag":"INV",
 
     "storyFlow":[
-        {"Prologue":[
-            "|LOCATION|sm",
-            "Welcome to this demo for a simple Visual Novel tool created using Phaser 3 for the web!",
-            "If you are on mobile, you can try switching between landscape and portrait!",
-            "On PC, open the dev console to see some behind the scenes logs!",
-            "You just saw a narrator dialog. Now let us see some narrator choices...",
-            "|CHOICE|Yeah lets do this!:|LABEL1|:Ok whatever:|LABEL2|",
-            "|LABEL1|Appreciate the excitement.",
-            "|LABEL2|So that was simple choice which jump to labels. Let us start a story...",
-            "The supermarket is crowded today. Holiday season is on and everyone is busy buying their presents.",
-            "l_n:Hi, I am Lucy. Let me get my phone.",
-            "|ITEM|lp",
-            "l_s:!I hate shopping alone. If only Lannie had not ditched me at the last minute...",
-            "Lucy sees a familiar face among the bustling crowd. Its Sam!",
-            "l_n:What should I do?",
-            "|CHOICE|Wave to Sam:|LABEL3|:Try to avoid Sam:|LABEL4|",
-            "|LABEL4|Lucy tries to ignore Sam but Sam sees her and runs to her.",
-            "|GOTO|:|LABEL5|",
-            "|LABEL3|Lucy waves to Sam",
-            "|LABEL5|s_w:Is this really you Lucy? What are the odds...",
-            "l_h:WOW! Sam, how have you been... how long has it been? 5 years?",
-            "l_n:!And still looking very handsome",
-            "s_h:7 actually. You have not changed a bit. So, is the shopping over?",
-            "See how it switches between dialog & thought",
-            "We use Dragon Bones non mesh animations for the characters and switch the face image based on character mood",
-            "Sadly Phaser 3 does not yet support DB mesh deformations",
-            "l_s:Well, my friend ditched me and I was wondering whom to partner up for my shopping...",
-            "s_h:Lead the way my lady...",
-            "s_n:!Hope she has a lot of shopping to do...",
-            "Lucy & Sam had so many stories to share. They did more talking than shopping. Hours passed!",
-            "s_n:Let me drop you at your apartment. I hope you are still living at the same place?",
-            "l_n:You got me. I would love you to meet Lannie.",
-            "We are going to check a variable to see whether we should skip next section or not.",
-            "|IF|$skipVariableCheck*==*true:|LABEL6|",
-            "We had set story variable skipVariableCheck to ' $skipVariableCheck ' hence we didnt skip this section.",
-            "|LABEL6|Let us check if Lucy has her phone in inventory (which she has as she had collected it earlier)",
-            "|IF|$INV*lp:|LABEL7|",
-            "|LABEL7|Success! Let us see variable updation. value of obtainedKey is $obtainedKey and charm is $charm",
-            "|CHOICE|Obtain Key:|$obtainedKey*=*true|:Increase Charm:|$charm*+*1|",
-            "New value of obtainedKey is $obtainedKey and charm is $charm",
-            "See how the variable in text reflects its value like ' $name ' here",
-            "|$charm*+*1|",
-            "Just incremented charm to ' $charm ' internally. So easy! Time to collect lucy's bag",
-            "|ITEM|lb",
-            "They got into Sam's car and made their way to Lucy's apartment.",
-            "Let us switch location"
-        ]},
-        {"Chapter 1":[
-            "|LOCATION|la",
-            "Lucy and Sam reach Lucy's apartment but Lannie is not there.",
-            "l_w:Do not tell me she went for shopping without me...",
-            "Sam bursts out laughing!",
-            "s_h:You are still funny",
-            "l_n:!This is awkward",
-            "Everything is driven by simple lines of text in a json file.",
-            "All you need to create a new story is the necessary art & some lines of well formatted text!",
-            "As can auto saving the progress using local storage so that we can pick up where we left off!",
-            "Auto saving is disabled for this build so that it replays once reloaded.",
-            "Have fun!"
-        ]},
-        {"Chapter 2":[
-
-        ]},
-        {"Epilogue":[
-
-        ]}
-    ]
-  }
+    ...
+    {"Lucy's First Day of School":[
+        "|LOCATION|school",
+        "Lucy enters the school building, nervously clutching her bag. The hallways are buzzing with students chatting and laughing. As she walks, she notices her classmates' pale complexions and a hint of supernatural energy in the air. She approaches her locker, where she encounters Sophia and Ethan, two of her vampire classmates.",
+        "sf_h:Hey there! You must be the new girl. I'm Sophia, and this is Ethan. What's your name?",
+        "|CHOICE|Hi, I'm Lucy. It's nice to meet you both.:|Friendly|:Yeah, I'm the new girl. So what? Leave me alone.:|Hostile|",
+        "|LABEL|Friendly|",
+        "sf_h:Welcome to our school, Lucy! If you need help finding your way around or have any questions, feel free to ask us.",
+        "e_n:Yeah, don't hesitate to reach out. We're here to help.",
+        "l_h:Thank you! I appreciate that.",
+        "|GOTO|:|Continue|",
+        "|LABEL|Hostile|",
+        "sf_s:Oh, um, sorry if we came across as intrusive. We just wanted to help.",
+        "e_a:Yeah, no problem. We'll leave you be.",
+        "l_s:Fine. Sorry if I sounded rude. It's just my first day here, and I'm a bit on edge.",
+        "|LABEL|Continue|",
+        "After the interaction, Lucy continues to her first class, feeling the weight of her choices as she navigates this strange new world. The player's choices will influence how characters perceive Lucy and the direction of the story, ultimately affecting the game's outcome."
+    ]}
+]
